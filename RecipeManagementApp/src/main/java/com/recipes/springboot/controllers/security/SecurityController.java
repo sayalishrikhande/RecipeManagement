@@ -54,7 +54,7 @@ public class SecurityController {
 
 			return ResponseEntity.ok(new AthenticationResponse(jwtToken));
 		} else {
-			return ResponseEntity.ok(null);
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);;
 		}
 	}
 
