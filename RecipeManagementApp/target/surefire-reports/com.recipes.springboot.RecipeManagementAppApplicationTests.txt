@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.recipes.springboot.RecipeManagementAppApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.331 s - in com.recipes.springboot.RecipeManagementAppApplicationTests
