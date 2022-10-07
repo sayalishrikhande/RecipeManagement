@@ -44,8 +44,14 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Override
-	public Recipe createRecipe(Recipe recipe) {
+	public Recipe createRecipe(Recipe recipe) throws NullPointerException {
 		Assert.notNull(recipe, "Input is null");
+		if(null == recipe.getIngredients()) {
+			throw new NullPointerException("Ingredients must be present");
+		}
+		if(null == recipe.getInstructions()) {
+			throw new NullPointerException("Instructions must be present");
+		}			
 		recipe.setCreated_Date(DateUtil.getCurrentDateTime());
 		recipe.setUpdated_Date(DateUtil.getCurrentDateTime());
 		Recipe savedRecipe = repo.save(recipe);
@@ -53,9 +59,12 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Override
-	public Recipe updateRecipe(Recipe recipe) {
+	public Recipe updateRecipe(Recipe recipe) throws NumberFormatException{
 		Assert.notNull(recipe, "Request is null");
 		Assert.notNull(recipe.getId(), "ID is null");
+		if(0 < recipe.getId()) {
+			throw new NumberFormatException("ID required");
+		}
 		recipe.setUpdated_Date(DateUtil.getCurrentDateTime());
 		LOGGER.info("Here in update");
 
