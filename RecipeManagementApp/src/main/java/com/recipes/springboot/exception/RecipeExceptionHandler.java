@@ -42,18 +42,18 @@ public class RecipeExceptionHandler {
 		final ErrorResponse errResponse = new ErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
 		return errResponse;
 	}
-
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-	public ErrorResponse HandleException(final Exception ex) {
-		final ErrorResponse errResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
-		return errResponse;
-	}
 	
 	@ExceptionHandler(BadCredentialsException.class)
 	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	public ErrorResponse BadCredentials(final BadCredentialsException ex) {
 		final ErrorResponse errResponse = new ErrorResponse(HttpStatus.UNAUTHORIZED, ex.getMessage());
+		return errResponse;
+	}
+
+	@ExceptionHandler(Exception.class)
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorResponse HandleException(final Exception ex) {
+		final ErrorResponse errResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
 		return errResponse;
 	}
 
