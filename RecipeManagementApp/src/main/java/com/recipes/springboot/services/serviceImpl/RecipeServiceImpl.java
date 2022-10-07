@@ -58,7 +58,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public Recipe updateRecipe(Recipe recipe) throws NumberFormatException {
-		if (0 < recipe.getId()) {
+		if (0 > recipe.getId()) {
 			throw new InvalidInputException("ID is required");
 		}
 		recipe.setUpdated_Date(DateUtil.getCurrentDateTime());
