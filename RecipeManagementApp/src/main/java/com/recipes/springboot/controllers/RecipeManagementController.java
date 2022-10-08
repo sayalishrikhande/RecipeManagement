@@ -118,7 +118,7 @@ public class RecipeManagementController {
 		try {
 			createdRecipe = recipeService.createRecipe(recipe);
 			recipeResult = new ResponseEntity<RecipeActionResult>(
-					new RecipeActionResult(HttpStatus.OK.value(), Messages.SUCCESSFUL.getMessage(), createdRecipe),
+					new RecipeActionResult(HttpStatus.CREATED.value(), Messages.SUCCESSFUL.getMessage(), createdRecipe),
 					HttpStatus.OK);
 		} catch (Exception e) {
 			LOGGER.error("In Catch" + e.getMessage());
